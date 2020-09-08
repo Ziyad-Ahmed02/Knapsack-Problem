@@ -1,4 +1,3 @@
-#include "class1.h"
 
 #include <bits/stdc++.h>
 #define all(x) (x).begin(),(x).end()
