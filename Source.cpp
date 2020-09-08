@@ -1,34 +1,16 @@
-
-#include <bits/stdc++.h>
-#define all(x) (x).begin(),(x).end()
-using namespace std;
-typedef long long ll;
-typedef vector<int> vi;
-typedef pair<int, int> pii;
-typedef vector<pii> vpii;
-const int Max = 1e5 + 5;
-
-int main() {
-    //  ios_base::sync_with_stdio(0); 
-      //cin.tie(0); 
-      //cout.tie(0);
-      //freopen("input.txt", "r", stdin);
-      //freopen("output.txt", "w", stdout);
-    int T = 1;
-
-    //      scanf("%d", &T);
-    while (T--) {
-
-        cout << "HELLO World";
-
-
-
-
-
-
-
-
-    }
-
-    return 0;
+int knapSack(int W, int wt[], int val[], int n)
+{
+	if (n == 0 || W == 0) // Base Case
+		return 0;
+	// If weight of the nth item is more than Knapsack capacity W, then this item cannot
+	//be included
+		// in the optimal solution
+		if (wt[n - 1] > W)
+			return knapSack(W, wt, val, n - 1);
+	// Return the maximum of two cases:
+	// (1) nth item included
+	// (2) not included
+		else
+			return max(val[n - 1] + knapSack(W - wt[n - 1], wt, val, n - 1), knapSack(W, wt,
+				val, n - 1));
 }
